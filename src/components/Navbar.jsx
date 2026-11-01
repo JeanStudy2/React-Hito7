@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-
+import { Link } from 'react-router-dom';
 
 let NavBar = () => {
 
@@ -21,18 +21,19 @@ const token = false;
                     // style={{ maxHeight: '100px' }}
                     navbarScroll
                 >
-                    <Nav.Link href="#action1">🍕Home</Nav.Link>
+                    <Nav.Link as={Link} to="/">🍕Home</Nav.Link>
                     {token
                     ?<>
-                        <Nav.Link href="#action1">🔓Profile</Nav.Link>
-                        <Nav.Link href="#action2">🔒Logout</Nav.Link>
+                        <Nav.Link as={Link} to="#action1">🔓Profile</Nav.Link>
+                        <Nav.Link as={Link} to="#action2">🔒Logout</Nav.Link>
                     </>
                     :<>
-                        <Nav.Link href="#action2">🔐Login</Nav.Link>
-                        <Nav.Link href="#action2">🔐Register</Nav.Link>
+                        <Nav.Link as={Link} to="/login">🔐Login</Nav.Link>
+                        <Nav.Link as={Link} to="/register">🔐Register</Nav.Link>
                     </>}
                 </Nav>
-                    <Button variant="outline-success">🛒 Total: ${total.toLocaleString()}</Button>
+                    
+                    <Button as={Link} to="/cart" variant="outline-success">🛒 Total: ${total.toLocaleString()}</Button>
                 </Navbar.Collapse>
             </Container>
             </Navbar>

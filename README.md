@@ -1,6 +1,4 @@
-React Hito 4
+React Hito 5
 
-- Renderizacion Dinamica con consumo de API, en servidor local
-
-- Creacion de componente Pizza.jsx
+- Se configuran rutas y se crean componentes profile y not found
 

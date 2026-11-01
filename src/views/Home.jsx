@@ -1,10 +1,11 @@
-import CardPizza from "./CardPizza"
-import Header from "./Header"
+import CardPizza from "../components/CardPizza"
+import Header from "../components/Header"
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useState } from "react";
 import { useEffect } from "react";
+import NavBar from "../components/Navbar";
 
 
 let Home = () =>{
@@ -26,19 +27,20 @@ let Home = () =>{
 
     return (
         <>
+          <NavBar/>
           <Header/>
           <main className="my-4">
             <Container>
               <Row className="gy-3">
                 {pizzas.map((pizza) => (
                   <Col md={6} lg={4} >
-                  <CardPizza
-                    key={pizza.id}
-                    img={pizza.img}
-                    name={pizza.name}
-                    price={pizza.price.toLocaleString()}
-                    ingredients={pizza.ingredients}
-                    />
+                    <CardPizza
+                      key={pizza.id}
+                      img={pizza.img}
+                      name={pizza.name}
+                      price={pizza.price.toLocaleString()}
+                      ingredients={pizza.ingredients}
+                      />
                 </Col>
                   ))}
               </Row>
