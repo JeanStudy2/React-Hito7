@@ -1,4 +1,4 @@
-React Hito 5
+React Hito 6
 
-- Se configuran rutas y se crean componentes profile y not found
+- Se configuran Cart context para agregar al carrito, llevar el total y los botones sumar y restar
 

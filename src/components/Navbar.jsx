@@ -1,12 +1,14 @@
+import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../contexts/CartContext';
 
 let NavBar = () => {
 
-const total = 25000;
+const {totalCart} = useContext(CartContext)
 const token = false;
 
     return(
@@ -33,7 +35,7 @@ const token = false;
                     </>}
                 </Nav>
                     
-                    <Button as={Link} to="/cart" variant="outline-success">🛒 Total: ${total.toLocaleString()}</Button>
+                    <Button as={Link} to="/cart" variant="outline-success">🛒 Total: ${totalCart.toLocaleString()}</Button>
                 </Navbar.Collapse>
             </Container>
             </Navbar>

@@ -3,14 +3,15 @@ import Header from "../components/Header"
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { useState } from "react";
+import { useContext } from "react";
 import { useEffect } from "react";
 import NavBar from "../components/Navbar";
+import { CartContext } from "../contexts/CartContext";
 
 
 let Home = () =>{
 
-    let [pizzas, setPizzas] = useState([])
+    let {pizzas, setPizzas} = useContext(CartContext)
 
     useEffect(() =>{
 
@@ -19,8 +20,7 @@ let Home = () =>{
           const data = await res.json()
           setPizzas(data)                   
 	        }
-          console.log(pizzas)
-	
+
   	      getproduct()
 
     },[])
@@ -33,14 +33,8 @@ let Home = () =>{
             <Container>
               <Row className="gy-3">
                 {pizzas.map((pizza) => (
-                  <Col md={6} lg={4} >
-                    <CardPizza
-                      key={pizza.id}
-                      img={pizza.img}
-                      name={pizza.name}
-                      price={pizza.price.toLocaleString()}
-                      ingredients={pizza.ingredients}
-                      />
+                  <Col md={6} lg={4} key={pizza.id} >
+                    <CardPizza pizza={pizza}/>
                 </Col>
                   ))}
               </Row>
