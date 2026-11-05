@@ -2,19 +2,24 @@ import { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
+import { useParams } from 'react-router-dom'
+import NavBar from '../components/Navbar';
+import { useContext } from 'react';
+import { CartContext } from '../contexts/CartContext';
 
 let Pizza = () =>{
 
         let [pizzas, setPizzas] = useState([])
+        const { id } = useParams()
+        const {agregarCarrito} = useContext(CartContext)
 
     useEffect(() =>{
 
         	const getproduct = async() =>{
-          const res = await fetch('http://localhost:5000/api/pizzas/p001')     
+          const res = await fetch(`http://localhost:5000/api/pizzas/${id}`)     
           const data = await res.json()
           setPizzas(data)                   
 	        }
-          console.log(pizzas)
 	
   	      getproduct()
 
@@ -22,6 +27,7 @@ let Pizza = () =>{
 
     return(
         <>
+          <NavBar/>
           <Card className='w-50 mx-auto my-4'>
             <Card.Img variant="top" src='https://images.pexels.com/photos/35759992/pexels-photo-35759992.jpeg' />
             <Card.Body>

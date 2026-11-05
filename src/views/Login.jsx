@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import NavBar from '../components/Navbar';
 
 let Login = () =>{
 
@@ -22,6 +23,7 @@ let Login = () =>{
     return(
         <>
           <div className='bg-dark'>
+            <NavBar/>
             <Form className='w-50 mx-auto py-4' onSubmit={pageDefault}>
             <h2 className='text-center text-light'>Inicio de Sesion</h2>
                 <Form.Group className="mb-3 text-light" controlId="formBasicEmail">

@@ -9,8 +9,6 @@ const CartProvider = ({children}) =>{
     const [pizzaCart, setPizzaCart] = useState([])
     let cartLenght = pizzaCart.length
 
-    
-
     const agregarCarrito = (p) => {
         setPizzaCart([...pizzaCart, {...p, count:1}])
     }
@@ -21,8 +19,7 @@ const CartProvider = ({children}) =>{
        setPizzaCart((pCart) =>
       pCart
       .map((p) => (p.id === id ? { ...p, count: p.count - 1 } : p))
-      .filter((p) => p.count > 0))
-    
+      .filter((p) => p.count > 0))    
     }
 
      let sumarCantidad = (id) =>{

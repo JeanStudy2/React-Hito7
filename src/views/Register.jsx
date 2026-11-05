@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import NavBar from '../components/Navbar';
 
 let Register = () =>{
 
@@ -30,6 +31,7 @@ let Register = () =>{
     return(
         <>
         <div className='bg-dark'>
+          <NavBar/>
           <Form className='w-50 mx-auto py-4' onSubmit={pageDefault}>
           <h2 className='text-center text-light'>Registro</h2>
             <Form.Group className="mb-3 text-light" controlId="formBasicEmail">

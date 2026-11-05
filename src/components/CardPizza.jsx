@@ -3,11 +3,14 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import { useContext } from 'react';
 import { CartContext } from '../contexts/CartContext';
+import { useNavigate} from 'react-router-dom'
 
 
 let CardPizza = ({pizza}) =>{
 
     const {agregarCarrito} = useContext(CartContext)
+    const navigate = useNavigate()
+    
 
     return (
         <>
@@ -29,7 +32,7 @@ let CardPizza = ({pizza}) =>{
                     </ListGroup.Item>
                 </ListGroup>
                 <Card.Body className='d-flex justify-content-evenly'>
-                    <Button variant="light">Ver Mas 👀</Button>
+                    <Button variant="light" onClick={() => navigate(`/Pizza/${pizza.id}`)}>Ver Mas 👀</Button>
                     <Button variant="dark" onClick={() => agregarCarrito(pizza)} >Añadir 🛒</Button>
                 </Card.Body>
             </Card> 

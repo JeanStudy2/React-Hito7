@@ -1,4 +1,4 @@
-React Hito 6
+React Hito 7
 
-- Se configuran Cart context para agregar al carrito, llevar el total y los botones sumar y restar
+- Se configuran rutas protegidas y funciones segun el estado del token
 

@@ -2,11 +2,12 @@ import { useContext } from 'react'
 import Button from 'react-bootstrap/Button'
 import NavBar from '../components/Navbar.jsx'
 import { CartContext } from '../contexts/CartContext.jsx'
+import { UserContext } from '../contexts/UserContext.jsx'
 
 let Cart = () => {
 
-  const {pizzaCart, setPizzaCart, totalCart, restarCantidad, sumarCantidad} = useContext(CartContext)
-
+  const {pizzaCart, totalCart, restarCantidad, sumarCantidad} = useContext(CartContext)
+  const {token} = useContext(UserContext)
  
     return(
         <>
@@ -32,7 +33,8 @@ let Cart = () => {
               })}
             </div>
             <p className='fs-3 fw-semibold'>Total:{totalCart}</p>
-            <Button variant="dark">Pagar</Button>
+            {token? <Button variant="dark">Pagar</Button>: <></> }
+            
           </form>
         </>
     )
